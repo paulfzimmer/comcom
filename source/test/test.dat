@@ -1,0 +1,7 @@
+// Test one
+//
+// @param {String} one
+// @param {Function} two
+
+function test_one(one, two) {
+}
