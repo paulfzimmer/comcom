@@ -34,36 +34,4 @@ export default class ComCom {
       }
     })
   }
-
-  buffer_handler() {
-    let self = this
-
-    return through(function (chunk) {
-      let test_chunk = (
-        self.buffer.length > 0 &&
-        chunk !== '\n' &&
-        chunk !== '0'
-      )
-
-      if (test_chunk) {
-
-        let ind = self.buffer[0].match(self.regexs[1]) || ''
-          , returns = '/**\n'
-
-        self.buffer.forEach((comment) => {
-          returns += comment.replace(self.regexs[0], ' * ')
-        })
-
-        self.buffer.splice(0, self.buffer.length)
-
-        returns = ind +
-          returns +
-          ind +
-          ' */\n' +
-          chunk +
-
-        this.queue(returns)
-      }
-    })
-  }
 }
