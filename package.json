@@ -6,7 +6,7 @@
   "scripts": {
     "clean": "rm -rf .nyc_output destination",
     "pretest": "npm run babel",
-    "test": "nyc --reporter=text-summary tap -R spec destination/test/test.js",
+    "test": "nyc tap destination/test/test.js",
     "babel": "mkdir -p destination; babel --out-dir destination source",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
